@@ -29,9 +29,23 @@
 		B63563EB2CDFB98E0077BA5A /* barcodeReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = barcodeReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B63563FF2CDFF7880077BA5A /* Exceptions for "barcodeReader" folder in "barcodeReader" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BarcodeScannerViewController.swift,
+				Info.plist,
+			);
+			target = B63563CE2CDFB98D0077BA5A /* barcodeReader */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B63563D12CDFB98D0077BA5A /* barcodeReader */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B63563FF2CDFF7880077BA5A /* Exceptions for "barcodeReader" folder in "barcodeReader" target */,
+			);
 			path = barcodeReader;
 			sourceTree = "<group>";
 		};
@@ -398,6 +412,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"barcodeReader/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = barcodeReader/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "NSCameraUsageDescription : Necesitamos acceso a la cámara para escanear códigos de barras.\nNSCameraUsageDescription : Necesitamos acceso a la cámara para escanear códigos de barras.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +442,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"barcodeReader/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = barcodeReader/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "NSCameraUsageDescription : Necesitamos acceso a la cámara para escanear códigos de barras.\nNSCameraUsageDescription : Necesitamos acceso a la cámara para escanear códigos de barras.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -7,12 +7,48 @@
 
 import SwiftUI
 import SwiftData
+import AVFoundation
+
+struct CameraView: UIViewControllerRepresentable {
+    var onCodeScanned: (String) -> Void
+
+    // Método requerido para crear el UIViewController
+    func makeUIViewController(context: Context) -> BarcodeScannerViewController {
+        let viewController = BarcodeScannerViewController()
+        viewController.onCodeScanned = onCodeScanned
+        return viewController
+    }
+
+    // Método requerido para actualizar el UIViewController
+    func updateUIViewController(_ uiViewController: BarcodeScannerViewController, context: Context) {
+        // No se necesita actualización continua en este caso
+    }
+}
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    
+    @State private var scannedCode: String?
 
     var body: some View {
+        VStack {
+            if let scannedCode = scannedCode {
+                Text("Código escaneado: \(scannedCode)")
+                    .font(.title)
+                    .padding()
+            } else {
+                Text("Apunta la cámara a un código de barras")
+                    .font(.headline)
+                    .padding()
+            }
+            
+            CameraView { code in
+                scannedCode = code
+            }
+            .edgesIgnoringSafeArea(.all)
+            .frame(height: 400)
+        }
         NavigationSplitView {
             List {
                 ForEach(items) { item in
