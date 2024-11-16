@@ -1,4 +1,4 @@
-// Menu TabView
+// Main Menu Tab
 enum MenuTabView {
     case dashboard
     case calendar

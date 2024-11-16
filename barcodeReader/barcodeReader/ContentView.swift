@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct ContentStandView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
@@ -56,6 +56,57 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    CameraPermissionView()
         .modelContainer(for: Item.self, inMemory: true)
+}
+
+
+
+//struct NavigationView: View {
+//
+////  @State private var exercises: [Exercise] = Exercise.sample
+////  @State private var path = NavigationPath()
+////
+////  var body: some View {
+////    NavigationStack(path: $path) {
+////      ExercisesList(exercises: exercises)
+////        .navigationDestination(for: Exercise.self, destination: { exercise in
+////          ExerciseDetail(exercise: exercise)
+////        })
+////    }
+////  }
+//}
+
+
+struct ContentButtonView: View {
+    @State private var viewModel = ViewModel()
+
+    var body: some View {
+        VStack {
+            ClaimButton(configuration: viewModel.claimButtonConfiguration) {
+                viewModel.claimCoupon()
+            }
+        }
+        .padding()
+    }
+}
+
+@Observable class ViewModel {
+    var claimButtonConfiguration: ClaimButton.Configuration = .normal
+
+    // Testing function
+    func claimCoupon() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.claimButtonConfiguration = .loading
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.claimButtonConfiguration = .confirmed
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.claimButtonConfiguration = .disabled
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.claimButtonConfiguration = .normal
+                    }
+                }
+            }
+        }
+    }
 }
