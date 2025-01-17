@@ -32,9 +32,9 @@ struct RootHomeView: View {
                     }
 
                 CalendarView()
-                    .tag(MenuTabView.calendar)
+                    .tag(MenuTabView.inventory)
                     .tabItem {
-                        Label("Calendar", systemImage: "calendar")
+                        Label("Inventory", systemImage: "calendar")
                     }
 
                 PropertyView()
@@ -61,11 +61,11 @@ struct RootHomeView: View {
                         withAnimation {
                             navState.dashboardNavigation = []
                         }
-                    case .calendar:
+                    case .inbox:
                         withAnimation {
                             navState.calendarNavigation = []
                         }
-                    case .inbox:
+                    case .inventory:
                         withAnimation {
                             navState.inboxNavigation = []
                         }

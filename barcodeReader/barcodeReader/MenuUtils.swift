@@ -1,7 +1,7 @@
 // Main Menu Tab
 enum MenuTabView {
     case dashboard
-    case calendar
+    case inventory
     case inbox
     case properties
 }
@@ -25,3 +25,5 @@ enum InboxNavDestination {
 enum PropertyNavDestination {
     case propertyDetails
 }
+
+
